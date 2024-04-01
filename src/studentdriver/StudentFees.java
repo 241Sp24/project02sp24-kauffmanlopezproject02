@@ -16,7 +16,9 @@ public abstract class StudentFees {
     private final double PER_CREDIT_FEE = 543.50;
     
     public StudentFees(String studentName, int studentID, boolean isEnrolled){
-        
+        this.studentName = " "; //or = studentName etc...
+        this.studentID = 0;
+        this.isEnrolled = true;
     }
     public String getStudentName(){
         return studentName;
