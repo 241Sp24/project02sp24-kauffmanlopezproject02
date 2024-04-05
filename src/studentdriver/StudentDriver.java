@@ -17,7 +17,6 @@ public class StudentDriver {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("Project02");
         //create StudentFees array
         StudentFees [] students = new StudentFees[12];
         
@@ -46,8 +45,32 @@ public class StudentDriver {
             String name = inputII.nextLine();
             String [] stringArray = name.split(",");
             //if statements with (numOfUGStudent<5) etc...
+            if (noOfUGStudents <= 5){
+                System.out.println("**********Undergraduate students list**********");
+                //enhanced for loop?
+            }
+            if (noOfGradStudents <= 4){
+                System.out.println("**********Graduate students list**********");
+                //enhanced for loop?
+            }
+            if(noOfOnlineStudents <= 3){
+                System.out.println("**********Online students list**********");
+                //enhanced for loop
+            }
         }
+        //not sure if any of this is right...
+        System.out.println("**********Undergraduate Students details**********");
+        System.out.println("Average Students fee: ");
+        System.out.println("Scholarship count: ");
+        System.out.println("Total number of courses: ");
         
+        System.out.println("**********Graduate Students details**********");
+        System.out.println("Average Students fee: ");
+        System.out.println("Graduate Assistanship count: ");
+        System.out.println("Total number of courses: ");
+        
+        System.out.println("**********Online Students details**********");
+        System.out.println("Average Students fee: ");
     }
 
 }
