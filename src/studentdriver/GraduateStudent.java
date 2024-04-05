@@ -29,6 +29,7 @@ public class GraduateStudent extends StudentFees {
         return coursesEnrolled;
     }
 
+    @Override
     public double getPayableAmount() {
         double numOfCred = coursesEnrolled * 3;
         double totalAmount = numOfCred + ADDITIONAL_FEES;
@@ -40,6 +41,7 @@ public class GraduateStudent extends StudentFees {
         return totalAmount;
     }
 
+    @Override
     public String toString() {
         return "Is Graduate Assistant? " + isGraduateAssistant + "Graduate Assistant Type: " + graduateAssistantType + "Courses Enrolled " + coursesEnrolled;
     }

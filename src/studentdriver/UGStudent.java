@@ -27,12 +27,14 @@ public class UGStudent extends StudentFees {
         return coursesEnrolled;
     }
 
+    @Override
     public double getPayableAmount() {
         double numOfCred = coursesEnrolled * 3;
         numOfCred = numOfCred * 543.50;
         return numOfCred - scholarshipAmount;
     }
 
+    @Override
     public String toString() {
         return super.toString() + "Has Scholarship? " + hasScholarship + "Scholarship amount: " + scholarshipAmount
                 + "Courses Enrolled: " + coursesEnrolled;

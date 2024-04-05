@@ -14,14 +14,16 @@ public class OnlineStudent extends StudentFees {
     
     public OnlineStudent(String studentName, int studentID, boolean isEnrolled, int noOfMonths){
         super(studentName, studentID, isEnrolled);
-        this.noOfMonths = 0; //or = noOfMonths 
+        this.noOfMonths = noOfMonths; 
     }
     
+    @Override
     public double getPayableAmount(){
         double payableAmount = MONTHLY_FEE * noOfMonths;
         return payableAmount;
     }
     
+    @Override
     public String toString(){
         return super.toString() + " " + this.noOfMonths;
     }
