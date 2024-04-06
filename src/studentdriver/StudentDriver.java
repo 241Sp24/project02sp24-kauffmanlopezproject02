@@ -57,17 +57,16 @@ public class StudentDriver {
                 double scholarshipAmount = Double.parseDouble(stringArray[5]);
                 students[counter] = new UGStudent(studentName, studentID, isEnrolled, hasScholarship, scholarshipAmount, coursesEnrolled);
                 counter++;
-            }
-            System.out.println(students[0]);
-            else if(counter < noOfGradStudents+noOfUGStudents) {
+            } else if (counter < noOfGradStudents + noOfUGStudents) {
                 System.out.println("**********Graduate students list**********");
                 //enhanced for loop?
-            }
-            else if(counter < noOfOnlineStudents+noOfGradStudents+noOfUGStudents) {
+            } else if (counter < noOfOnlineStudents + noOfGradStudents + noOfUGStudents) {
                 System.out.println("**********Online students list**********");
                 //enhanced for loop
             }
         }
+
+        //ENHANCED FOR LOOP/PRINTING STUFF
         //not sure if any of this is right...
         System.out.println("**********Undergraduate Students details**********");
         System.out.println("Average Students fee: ");
