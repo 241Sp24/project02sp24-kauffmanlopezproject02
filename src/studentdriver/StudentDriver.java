@@ -18,6 +18,7 @@ public class StudentDriver {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
+        //Ask Kai: why line 66 is out of bounds and calculate students fees etc w/o making a new arraylist 
         //create StudentFees array
         StudentFees[] students = new StudentFees[12];
 
@@ -73,14 +74,14 @@ public class StudentDriver {
                 int noOfMonths = Integer.parseInt(stringArray[3]);
                 students[counter] = new OnlineStudent(studentName, studentID, isEnrolled, noOfMonths);
                 counter++;
-                System.out.println("**********Online students list**********");
-                //enhanced for loop
             }
         }
 
         //ENHANCED FOR LOOP/PRINTING STUFF
         //not sure if any of this is right...
         System.out.println("**********Undergraduate Students details**********");
+//        for(StudentFees a: students){
+//        }
         System.out.println("Average Students fee: ");
         System.out.println("Scholarship count: ");
         System.out.println("Total number of courses: ");
