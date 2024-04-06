@@ -58,9 +58,21 @@ public class StudentDriver {
                 students[counter] = new UGStudent(studentName, studentID, isEnrolled, hasScholarship, scholarshipAmount, coursesEnrolled);
                 counter++;
             } else if (counter < noOfGradStudents + noOfUGStudents) {
-                System.out.println("**********Graduate students list**********");
-                //enhanced for loop?
+                int studentID = Integer.parseInt(stringArray[0]);
+                String studentName = stringArray[1];
+                boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
+                int coursesEnrolled = Integer.parseInt(stringArray[3]);
+                boolean isGraduateAssistant = Boolean.parseBoolean(stringArray[4]);
+                String graduateAssistantType = stringArray[5];
+                students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
+                counter++;
             } else if (counter < noOfOnlineStudents + noOfGradStudents + noOfUGStudents) {
+                int studentID = Integer.parseInt(stringArray[0]);
+                String studentName = stringArray[1];
+                boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
+                int noOfMonths = Integer.parseInt(stringArray[3]);
+                students[counter] = new OnlineStudent(studentName, studentID, isEnrolled, noOfMonths);
+                counter++;
                 System.out.println("**********Online students list**********");
                 //enhanced for loop
             }
