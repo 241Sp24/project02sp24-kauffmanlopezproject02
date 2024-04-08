@@ -9,22 +9,23 @@ package studentdriver;
  * @author s556538
  */
 public class OnlineStudent extends StudentFees {
+
     private int noOfMonths;
     private final double MONTHLY_FEE = 1245.25;
-    
-    public OnlineStudent(String studentName, int studentID, boolean isEnrolled, int noOfMonths){
+
+    public OnlineStudent(String studentName, int studentID, boolean isEnrolled, int noOfMonths) {
         super(studentName, studentID, isEnrolled);
-        this.noOfMonths = noOfMonths; 
+        this.noOfMonths = noOfMonths;
     }
-    
+
     @Override
-    public double getPayableAmount(){
+    public double getPayableAmount() {
         double payableAmount = MONTHLY_FEE * noOfMonths;
         return payableAmount;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + " " + this.noOfMonths;
     }
 

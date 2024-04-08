@@ -18,7 +18,7 @@ public class StudentDriver {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-        //Ask Kai: why line 66 is out of bounds and calculate students fees etc w/o making a new arraylist 
+        //Ask Kai: why line 66 is out of bounds and calculate students fees etc w/o making a new arraylist
         //create StudentFees array
         StudentFees[] students = new StudentFees[12];
 
@@ -58,14 +58,22 @@ public class StudentDriver {
                 double scholarshipAmount = Double.parseDouble(stringArray[5]);
                 students[counter] = new UGStudent(studentName, studentID, isEnrolled, hasScholarship, scholarshipAmount, coursesEnrolled);
                 counter++;
+                //Else/if to read and assign graduate student
+
             } else if (counter < noOfGradStudents + noOfUGStudents) {
                 int studentID = Integer.parseInt(stringArray[0]);
                 String studentName = stringArray[1];
                 boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
                 int coursesEnrolled = Integer.parseInt(stringArray[3]);
                 boolean isGraduateAssistant = Boolean.parseBoolean(stringArray[4]);
-                String graduateAssistantType = stringArray[5];
-                students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
+                if (stringArray[5].equals(undefined)) {
+                    stringArray[5] = " ";
+                    String graduateAssistantType = stringArray[5];
+                    students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
+                } else {
+                    String graduateAssistantType = stringArray[5];
+                    students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
+                }
                 counter++;
             } else if (counter < noOfOnlineStudents + noOfGradStudents + noOfUGStudents) {
                 int studentID = Integer.parseInt(stringArray[0]);
