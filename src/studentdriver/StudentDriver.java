@@ -61,20 +61,26 @@ public class StudentDriver {
                 //Else/if to read and assign graduate student
 
             } else if (counter < noOfGradStudents + noOfUGStudents) {
+                if(stringArray.length == 6){
+                    
                 int studentID = Integer.parseInt(stringArray[0]);
                 String studentName = stringArray[1];
                 boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
                 int coursesEnrolled = Integer.parseInt(stringArray[3]);
                 boolean isGraduateAssistant = Boolean.parseBoolean(stringArray[4]);
-                if (stringArray[5].equals(undefined)) {
-                    stringArray[5] = " ";
-                    String graduateAssistantType = stringArray[5];
-                    students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
-                } else {
-                    String graduateAssistantType = stringArray[5];
-                    students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
-                }
+                String graduateAssistantType = stringArray[5];
+                students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
                 counter++;
+                }
+                else{ 
+                    int studentID = Integer.parseInt(stringArray[0]);
+                String studentName = stringArray[1];
+                boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
+                int coursesEnrolled = Integer.parseInt(stringArray[3]);
+                boolean isGraduateAssistant = Boolean.parseBoolean(stringArray[4]);
+                students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, coursesEnrolled);
+                counter++;
+                }
             } else if (counter < noOfOnlineStudents + noOfGradStudents + noOfUGStudents) {
                 int studentID = Integer.parseInt(stringArray[0]);
                 String studentName = stringArray[1];
@@ -87,9 +93,22 @@ public class StudentDriver {
 
         //ENHANCED FOR LOOP/PRINTING STUFF
         //not sure if any of this is right...
-        System.out.println("**********Undergraduate Students details**********");
-//        for(StudentFees a: students){
-//        }
+        //System.out.println("**********Undergraduate Students details**********");
+        for(StudentFees a: students){
+            System.out.println();
+            if(a instanceof UGStudent){
+               System.out.println("**********Undergraduate Students details**********");
+               System.out.println(a); 
+            }
+            else if (a instanceof GraduateStudent){
+                System.out.println("**********Graduate Students details**********");
+                System.out.println(a);
+            }
+            else if (a instanceof OnlineStudent){
+                System.out.println("**********Online Students details**********");
+                System.out.println(a);
+            }
+        }
         System.out.println("Average Students fee: ");
         System.out.println("Scholarship count: ");
         System.out.println("Total number of courses: ");
