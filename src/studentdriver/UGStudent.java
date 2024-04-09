@@ -29,14 +29,19 @@ public class UGStudent extends StudentFees {
 
     @Override
     public double getPayableAmount() {
-        double numOfCred = coursesEnrolled * 3;
-        return numOfCred * 543.50;
+        if (isIsEnrolled() == false) {
+            return 0.0;
+        } else {
+            double numOfCred = coursesEnrolled * 3;
+            numOfCred = numOfCred * 543.50;
+            return numOfCred + ADDITIONAL_FEE - scholarshipAmount;
 
+        }
     }
 
     @Override
     public String toString() {
         return super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship amount: " + scholarshipAmount
-                + "\nCourses Enrolled: " + coursesEnrolled +  "\nPayable amount: " + getPayableAmount();
+                + "\nCourses Enrolled: " + coursesEnrolled + "\nPayable amount: " + getPayableAmount();
     }
 }
