@@ -26,7 +26,7 @@ public class OnlineStudent extends StudentFees {
 
     @Override
     public String toString() {
-        return super.toString() + " " + this.noOfMonths;
+        return super.toString() + "\nNO of months: " + this.noOfMonths + "\nPayable Amount: " + getPayableAmount();
     }
 
 }

@@ -19,6 +19,7 @@ public class GraduateStudent extends StudentFees {
         super(studentName, studentID, isEnrolled);
         this.isGraduateAssistant = isGraduateAssistant;
         this.coursesEnrolled = coursesEnrolled;
+        graduateAssistantType = "";
     }
 
     public boolean isIsGraduateAssistant() {
@@ -43,6 +44,6 @@ public class GraduateStudent extends StudentFees {
 
     @Override
     public String toString() {
-        return "Is Graduate Assistant? " + isGraduateAssistant + "Graduate Assistant Type: " + graduateAssistantType + "Courses Enrolled " + coursesEnrolled;
+        return super.toString() + "\nGraduate Assistant: " + isGraduateAssistant + "\nGraduate Assistant Type: " + graduateAssistantType + "\nCourses Enrolled " + coursesEnrolled + "\nPayable Amount: " + getPayableAmount();
     }
 }
