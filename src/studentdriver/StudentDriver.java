@@ -58,22 +58,14 @@ public class StudentDriver {
                 double scholarshipAmount = Double.parseDouble(stringArray[5]);
                 students[counter] = new UGStudent(studentName, studentID, isEnrolled, hasScholarship, scholarshipAmount, coursesEnrolled);
                 counter++;
-                //Else/if to read and assign graduate student
-
             } else if (counter < noOfGradStudents + noOfUGStudents) {
                 int studentID = Integer.parseInt(stringArray[0]);
                 String studentName = stringArray[1];
                 boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
                 int coursesEnrolled = Integer.parseInt(stringArray[3]);
                 boolean isGraduateAssistant = Boolean.parseBoolean(stringArray[4]);
-                if (stringArray[5].equals(undefined)) {
-                    stringArray[5] = " ";
-                    String graduateAssistantType = stringArray[5];
-                    students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
-                } else {
-                    String graduateAssistantType = stringArray[5];
-                    students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
-                }
+                String graduateAssistantType = stringArray[5];
+                students[counter] = new GraduateStudent(studentName, studentID, isEnrolled, isGraduateAssistant, graduateAssistantType, coursesEnrolled);
                 counter++;
             } else if (counter < noOfOnlineStudents + noOfGradStudents + noOfUGStudents) {
                 int studentID = Integer.parseInt(stringArray[0]);
