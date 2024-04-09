@@ -30,8 +30,8 @@ public class UGStudent extends StudentFees {
     @Override
     public double getPayableAmount() {
         double numOfCred = coursesEnrolled * 3;
-        numOfCred = numOfCred * 543.50;
-        return numOfCred - scholarshipAmount;
+        return numOfCred * 543.50;
+
     }
 
     @Override
