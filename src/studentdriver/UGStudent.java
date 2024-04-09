@@ -36,7 +36,7 @@ public class UGStudent extends StudentFees {
 
     @Override
     public String toString() {
-        return super.toString() + "Has Scholarship? " + hasScholarship + "Scholarship amount: " + scholarshipAmount
-                + "Courses Enrolled: " + coursesEnrolled;
+        return super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship amount: " + scholarshipAmount
+                + "\nCourses Enrolled: " + coursesEnrolled + "\n";
     }
 }
