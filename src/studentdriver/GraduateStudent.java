@@ -32,14 +32,22 @@ public class GraduateStudent extends StudentFees {
 
     @Override
     public double getPayableAmount() {
-        double numOfCred = coursesEnrolled * 3;
-        double totalAmount = numOfCred + ADDITIONAL_FEES;
-        if (graduateAssistantType.equals("Full")) {
-            totalAmount = 0;
-        } else if (graduateAssistantType.equals("Half")) {
-            totalAmount = totalAmount / 2;
+        if(isIsEnrolled()){
+            double numOfCred = coursesEnrolled * 3 * 543.50;
+            if(isIsGraduateAssistant()){
+                if (graduateAssistantType.toLowerCase().equals("full")) {
+                    numOfCred = 0;
+                } 
+                else if (graduateAssistantType.toLowerCase().equals("half")) {
+                    numOfCred = numOfCred / 2;
+                }
+            }
+            double totalAmount = numOfCred + ADDITIONAL_FEES;
+            return totalAmount;
         }
-        return totalAmount;
+        else{
+            return 0;
+        }
     }
 
     @Override

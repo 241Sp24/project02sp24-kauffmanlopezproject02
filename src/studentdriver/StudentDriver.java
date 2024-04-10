@@ -87,6 +87,37 @@ public class StudentDriver {
                 counter++;
             }
         }
+         //UG stats
+        double UGAvgF = 0.0;
+        int UGSchol = 0;
+        int UGCourses = 0;
+        for(StudentFees x: students){
+            if(x instanceof UGStudent){
+                UGStudent y = (UGStudent)x;
+                if(y.isHasScholarship()){
+                    UGSchol += 1;
+                }
+                if(y.isIsEnrolled()){
+                    UGCourses +=  y.getCoursesEnrolled();
+                }
+            }
+        }
+        
+        //Grad stats
+        double GAvgF = 0.0;
+        int GACount = 0;
+        int GCourses = 0;
+        for(StudentFees l: students){
+            if(l instanceof GraduateStudent){
+                GraduateStudent m = (GraduateStudent)l;
+                if(m.isIsGraduateAssistant()){
+                    GACount += 1;
+                }
+                if(m.isIsEnrolled()){
+                    GCourses +=  m.getCoursesEnrolled();
+                }
+            }
+        }
 
         //ENHANCED FOR LOOP/PRINTING STUFF
         //not sure if any of this is right...
@@ -117,15 +148,15 @@ public class StudentDriver {
             }
         }
 
-        System.out.println("**********Undergraduate Student Details");
+        System.out.println("\n**********Undergraduate Student Details**********");
         System.out.println("Average Students fee: ");
-        System.out.println("Scholarship count: ");
-        System.out.println("Total number of courses: ");
+        System.out.println("Scholarship count: " + UGSchol);
+        System.out.println("Total number of courses: " + UGCourses);
 
         System.out.println("**********Graduate Students details**********");
         System.out.println("Average Students fee: ");
-        System.out.println("Graduate Assistanship count: ");
-        System.out.println("Total number of courses: ");
+        System.out.println("Graduate Assistanship count: " + GACount);
+        System.out.println("Total number of courses: " + GCourses);
 
         System.out.println("**********Online Students details**********");
         System.out.println("Average Students fee: ");
