@@ -19,9 +19,15 @@ public class OnlineStudent extends StudentFees {
     }
 
     @Override
-    public double getPayableAmount() {
-        double payableAmount = MONTHLY_FEE * noOfMonths;
-        return payableAmount;
+    public double getPayableAmount(){
+        double payableAmount = 0;
+        if(super.isIsEnrolled()){
+            payableAmount = MONTHLY_FEE * noOfMonths;
+            return payableAmount;
+        }
+        else{
+            return 0.0;
+        }
     }
 
     @Override

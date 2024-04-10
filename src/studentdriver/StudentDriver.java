@@ -16,6 +16,7 @@ public class StudentDriver {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         //Ask Kai: why line 66 is out of bounds and calculate students fees etc w/o making a new arraylist
@@ -23,9 +24,9 @@ public class StudentDriver {
         StudentFees[] students = new StudentFees[12];
 
         //declare number of students variable
-        int noOfUGStudents = 0;
-        int noOfGradStudents = 0;
-        int noOfOnlineStudents = 0;
+        int noOfUGStudents;
+        int noOfGradStudents;
+        int noOfOnlineStudents;
         //new scanner
         Scanner input = new Scanner(System.in);
         //promt user for number of under grad students
@@ -60,6 +61,7 @@ public class StudentDriver {
                 counter++;
             } else if (counter < noOfGradStudents + noOfUGStudents) {
                 if (stringArray.length == 6) {
+
                     int studentID = Integer.parseInt(stringArray[0]);
                     String studentName = stringArray[1];
                     boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
@@ -86,35 +88,51 @@ public class StudentDriver {
                 counter++;
             }
         }
-        //UG stats
+         //UG stats
         double UGAvgF = 0.0;
         int UGSchol = 0;
         int UGCourses = 0;
-        for (StudentFees x : students) {
-            if (x instanceof UGStudent) {
-                UGStudent y = (UGStudent) x;
-                if (y.isHasScholarship()) {
+        double total = 0.0;
+        for(StudentFees x: students){
+            if(x instanceof UGStudent){
+                UGStudent y = (UGStudent)x;
+                if(y.isHasScholarship()){
                     UGSchol += 1;
                 }
-                if (y.isIsEnrolled()) {
-                    UGCourses += y.getCoursesEnrolled();
+                if(y.isIsEnrolled()){
+                    UGCourses +=  y.getCoursesEnrolled();
+                    UGAvgF = ((((UGStudent) x).getCoursesEnrolled()*3 * 543.50)+820.70- ((UGStudent) x).getScholarshipAmount());
+                    total += UGAvgF;
                 }
             }
         }
-
+        
         //Grad stats
-        double GAvgF = 0.0;
+        double GAvgF;
         int GACount = 0;
         int GCourses = 0;
-        for (StudentFees l : students) {
-            if (l instanceof GraduateStudent) {
-                GraduateStudent m = (GraduateStudent) l;
-                if (m.isIsGraduateAssistant()) {
+        double Gtotal = 0.0;
+        for(StudentFees l: students){
+            if(l instanceof GraduateStudent){
+                GraduateStudent m = (GraduateStudent)l;
+                if(m.isIsGraduateAssistant()){
                     GACount += 1;
                 }
-                if (m.isIsEnrolled()) {
-                    GCourses += m.getCoursesEnrolled();
+                if(m.isIsEnrolled()){
+                    GAvgF = m.getPayableAmount();
+                    Gtotal += GAvgF;
+                    GCourses +=  m.getCoursesEnrolled();
                 }
+            }
+        }
+        //Online student stats 
+        double OSAvg;
+        double Ototal = 0.0;
+        for(StudentFees j: students){
+            if (j instanceof OnlineStudent){
+                OnlineStudent k = (OnlineStudent)j;
+                OSAvg = k.getPayableAmount();
+                Ototal += OSAvg;
             }
         }
 
@@ -147,18 +165,19 @@ public class StudentDriver {
             }
         }
 
-        System.out.println("\n**********Undergraduate Student Details**********");
-        System.out.println("Average Students fee: ");
+        System.out.println("\n**********Undergraduate Students details**********");
+        System.out.printf("Average Students fee: %6.2f\n", total/4);
         System.out.println("Scholarship count: " + UGSchol);
         System.out.println("Total number of courses: " + UGCourses);
 
         System.out.println("**********Graduate Students details**********");
-        System.out.println("Average Students fee: ");
+        System.out.printf("Average Students fee: %6.2f\n", Gtotal/4);
         System.out.println("Graduate Assistanship count: " + GACount);
         System.out.println("Total number of courses: " + GCourses);
 
         System.out.println("**********Online Students details**********");
-        System.out.println("Average Students fee: ");
+        System.out.printf("Average Students fee: %6.2f\n", Ototal/3 );
     }
+
 
 }
