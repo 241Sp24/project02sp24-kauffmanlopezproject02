@@ -60,7 +60,6 @@ public class StudentDriver {
                 counter++;
             } else if (counter < noOfGradStudents + noOfUGStudents) {
                 if (stringArray.length == 6) {
-
                     int studentID = Integer.parseInt(stringArray[0]);
                     String studentName = stringArray[1];
                     boolean isEnrolled = Boolean.parseBoolean(stringArray[2]);
@@ -87,34 +86,34 @@ public class StudentDriver {
                 counter++;
             }
         }
-         //UG stats
+        //UG stats
         double UGAvgF = 0.0;
         int UGSchol = 0;
         int UGCourses = 0;
-        for(StudentFees x: students){
-            if(x instanceof UGStudent){
-                UGStudent y = (UGStudent)x;
-                if(y.isHasScholarship()){
+        for (StudentFees x : students) {
+            if (x instanceof UGStudent) {
+                UGStudent y = (UGStudent) x;
+                if (y.isHasScholarship()) {
                     UGSchol += 1;
                 }
-                if(y.isIsEnrolled()){
-                    UGCourses +=  y.getCoursesEnrolled();
+                if (y.isIsEnrolled()) {
+                    UGCourses += y.getCoursesEnrolled();
                 }
             }
         }
-        
+
         //Grad stats
         double GAvgF = 0.0;
         int GACount = 0;
         int GCourses = 0;
-        for(StudentFees l: students){
-            if(l instanceof GraduateStudent){
-                GraduateStudent m = (GraduateStudent)l;
-                if(m.isIsGraduateAssistant()){
+        for (StudentFees l : students) {
+            if (l instanceof GraduateStudent) {
+                GraduateStudent m = (GraduateStudent) l;
+                if (m.isIsGraduateAssistant()) {
                     GACount += 1;
                 }
-                if(m.isIsEnrolled()){
-                    GCourses +=  m.getCoursesEnrolled();
+                if (m.isIsEnrolled()) {
+                    GCourses += m.getCoursesEnrolled();
                 }
             }
         }
